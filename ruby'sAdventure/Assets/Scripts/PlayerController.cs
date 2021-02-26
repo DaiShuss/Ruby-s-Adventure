@@ -5,35 +5,47 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 5f;
-    Rigidbody2D rigidBody;
-    private int curHealth;
-    private int maxHealth = 5;
-    private bool isImmutable = false;
+    public const float speed = 5f;
     private const float immutableTime = 2f;
-    private float immutableTimer = 2f;
+    private int maxHealth = 5;
 
-    // Start is called before the first frame update
+    private float immutableTimer;
+    private int curHealth;
+    private bool isImmutable = false;
+
+    Rigidbody2D rigidBody;
+    Animator animator;
+    Vector2 playerDirction = new Vector2(1, 0);
+
     void Start() {
-        rigidBody = GetComponent<Rigidbody2D>();
         this.immutableTimer = 0;
         this.curHealth = 5;
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate() {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+        // Player Animation Control
+        Vector2 moveVector = new Vector2(moveX, moveY);
+        if (moveVector.x != 0 || moveVector.y != 0)
+        {
+            playerDirction = moveVector;
+        }
+
+        animator.SetFloat("Look X", playerDirction.x);
+        animator.SetFloat("Look Y", playerDirction.y);
+        animator.SetFloat("Speed", moveVector.magnitude);
+
+        // Player Move Control
         Vector2 pos = rigidBody.position;
         pos.x += moveX * speed * Time.deltaTime;
         pos.y += moveY * speed * Time.deltaTime;
-        rigidBody.position = pos;
+        rigidBody.MovePosition(pos);
 
+        // Player Immutable Control
         if (this.isImmutable)
         {
             immutableTimer -= Time.deltaTime;
