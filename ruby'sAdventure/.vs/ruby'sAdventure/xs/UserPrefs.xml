@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{B86559AB-BD85-7C92-2D1A-D9C0208EE152}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyCollider.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="58" Column="42" />
+      <File FileName="Assets/Scripts/Collectable.cs" Line="5" Column="25" />
+      <File FileName="Assets/Scripts/MapDamage.cs" Line="8" Column="17" />
+      <File FileName="Assets/Scripts/EnemyController.cs" Line="32" Column="33" />
+      <File FileName="Assets/Scripts/EnemyCollider.cs" Line="18" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ruby'sAdventure" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="EnemyCollider.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="eae327e7-ba12-4761-82fa-c9d14bf287c3" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
