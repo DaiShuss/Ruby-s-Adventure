@@ -19,14 +19,12 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
+        if (!rigidBody.simulated)
+        {
+            return;
+        }
         Vector2 position = rigidBody.position;
         directionChangeTime -= Time.deltaTime;
         if (directionChangeTime < 0)
@@ -39,5 +37,11 @@ public class EnemyController : MonoBehaviour
         rigidBody.MovePosition(position);
         animator.SetFloat("moveX", moveDirection.x);
         animator.SetFloat("moveY", moveDirection.y);
+    }
+
+    public void fix()
+    {
+        animator.SetTrigger("fixed");
+        rigidBody.simulated = false;
     }
 }

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rigidBody;
     Animator animator;
+    public GameObject bulletObject;
     Vector2 playerDirction = new Vector2(1, 0);
 
     void Start() {
@@ -52,6 +53,18 @@ public class PlayerController : MonoBehaviour
             if (immutableTimer < 0)
             {
                 this.isImmutable = false;
+            }
+        }
+
+        // Bullet Control
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            animator.SetTrigger("Launch");
+            GameObject bullet = Instantiate(bulletObject, rigidBody.position + Vector2.up * 0.5f, Quaternion.identity);
+            BulletController bc = bullet.GetComponent<BulletController>();
+            if (bc != null)
+            {
+                bc.move(playerDirction, 500);
             }
         }
     }
