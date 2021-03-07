@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public bool isVeritical;
     public float directionChangeTime = 2f;
     private Animator animator;
+    public ParticleSystem brokenEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,10 @@ public class EnemyController : MonoBehaviour
 
     public void fix()
     {
+        if (brokenEffect.isPlaying)
+        {
+            brokenEffect.Stop();
+        }
         animator.SetTrigger("fixed");
         rigidBody.simulated = false;
     }
